@@ -164,7 +164,14 @@
 <br>  
 <br>
 
+
+
+
   <footer id="contact" class="contact-footer">
+    <div class="scroll-to-top">
+      <i class="fa fa-arrow-up"></i> <!-- Font Awesome arrow icon -->
+    </div>
+
     <h2>Let’s Connect!</h2>
     <p>Have a project in mind or want to chat about GenAI? Let's make magic happen! ✨</p>
       <br>
@@ -185,6 +192,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
 </body>
+
 <script>
   // Stars animation script goes here
   const canvas = document.getElementById('stars');
@@ -231,5 +239,22 @@
 
   initStars();
   animateStars();
+  // Get the button
+let scrollToTopButton = document.querySelector('.scroll-to-top');
+
+// Show the button when the user scrolls down 200px
+window.onscroll = function() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    scrollToTopButton.style.display = "block"; // Show the button
+  } else {
+    scrollToTopButton.style.display = "none"; // Hide the button
+  }
+};
+
+// Scroll to the top when the button is clicked
+scrollToTopButton.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 </script>
 </html>

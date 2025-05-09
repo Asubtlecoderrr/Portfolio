@@ -538,4 +538,25 @@ section#budhimaan ul {
   60% { transform: rotate(0.0deg); }
   100% { transform: rotate(0.0deg); }
 }
+.scroll-to-top {
+  position: fixed;
+  bottom: 80px; /* Adjust this value to place it above the footer */
+  right: 20px;
+  background-color: #1c1c1c;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-to-top i {
+  font-size: 24px;
+}
+
+.scroll-to-top:hover {
+  background-color: #444;
+}
 

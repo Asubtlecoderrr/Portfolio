@@ -525,6 +525,7 @@ section#budhimaan ul {
   animation: wave-animation 2s infinite;
   transform-origin: 70% 70%;
   font-size: 50px; 
+  will-change: transform; 
 }
 
 @keyframes wave-animation {

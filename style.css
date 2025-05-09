@@ -1,4 +1,16 @@
-/* style.css */
+html {
+  scroll-behavior: smooth;
+}
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure it's behind everything */
+  width: 100%;
+  height: 100%;
+}
+
+
 
 body {
   margin: 0;
@@ -462,7 +474,7 @@ section#budhimaan ul {
   display: block;
 }
 .contact-footer {
-  background-color: #2a2929;
+  background-color: #1c1c1c;
   color: #e0e0e0;
   padding: 2rem;
   text-align: center;
@@ -496,4 +508,15 @@ section#budhimaan ul {
   color: #f0f0f0;
   position: relative;
   animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes fadeInLogo {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }

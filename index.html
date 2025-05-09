@@ -194,51 +194,64 @@
 </body>
 
 <script>
-  // Stars animation script goes here
-  const canvas = document.getElementById('stars');
-  const ctx = canvas.getContext('2d');
-  let stars = [];
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
 
-  function initStars() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    stars = [];
-
-    for (let i = 0; i < 150; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5,
-        opacity: Math.random(),
-        speed: Math.random() * 0.3
-      });
+    // Adjust canvas size on resize
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
-  }
 
-  function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let star of stars) {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-      ctx.fill();
-
-      // Twinkling effect
-      star.opacity += (Math.random() - 0.5) * 0.05;
-      if (star.opacity < 0.1) star.opacity = 0.1;
-      if (star.opacity > 1) star.opacity = 1;
+    // Create stars with random positions and properties
+    function initStars() {
+      stars = [];
+      for (let i = 0; i < 150; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.2, // Random radius
+          opacity: Math.random(), // Initial opacity
+          speed: Math.random() * 0.3, // Random speed
+        });
+      }
     }
-  }
 
-  function animateStars() {
-    drawStars();
-    requestAnimationFrame(animateStars);
-  }
+    // Draw and animate stars
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
 
-  window.addEventListener('resize', initStars);
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`; // Dynamic opacity for twinkling effect
+        ctx.fill();
 
-  initStars();
-  animateStars();
+        // Twinkling effect (random opacity change)
+        star.opacity += (Math.random() - 0.5) * 0.11;
+        if (star.opacity < 0.3) star.opacity = 0.3;
+        if (star.opacity > 1) star.opacity = 1;
+      }
+    }
+
+    // Animation loop
+    function animate() {
+      drawStars();
+      requestAnimationFrame(animate); // Request next frame
+    }
+
+    // Initialize the stars when the page loads
+    window.onload = function() {
+      resizeCanvas();
+      initStars();
+      animate();
+    };
+
+    // Resize the canvas when the window is resized
+    window.onresize = function() {
+      resizeCanvas();
+    };
   // Get the button
 let scrollToTopButton = document.querySelector('.scroll-to-top');
 

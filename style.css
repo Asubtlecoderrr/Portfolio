@@ -81,10 +81,11 @@ section {
 
 .project-card {
   background: #1a1a1a;
-  border-left: 4px solid #444;
-  margin: 1rem 0;
+  border-left: 5px solid #444;
+  margin: 2rem 0;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 3px;
+  width: 100%;
 }
 
 .experience p {
@@ -408,4 +409,51 @@ header.hero {
   .hero-text .portfolio-title {
     font-size: 2.5rem;
   }
+}
+section#budhimaan {
+  background: #121212;
+  padding: 4rem 2rem;
+  border-left: 5px solid #444;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+section#budhimaan h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+section#budhimaan h3 {
+  margin-top: 2rem;
+}
+
+section#budhimaan ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  color: #ccc;
+  line-height: 1.7;
+}
+/* Accordion styles */
+.accordion {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.panel {
+  padding: 0 10px;
+  display: none;
+  background-color: #333;
+  color: #ddd;
+  font-size: 1.1rem;
+}
+
+.accordion.active + .panel {
+  display: block;
 }
